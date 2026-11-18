@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sinalis | Comunicação sem barreiras</title>
+  <link rel="stylesheet" href="/style.css" />
+  <script defer src="/app.js"></script>
+</head>
+<body>
+  <header class="topo"><div class="logo">✋ <strong>Sinalis</strong></div><nav><a href="#usuarios">Usuários</a><a href="#sessoes">Sessões</a><a href="#traducoes">Comunicação</a></nav></header>
+  <main>
+    <section class="hero"><span class="tag">Global Solution • CitizenTech</span><h1>Comunicação <em>sem barreiras.</em></h1><p>Uma plataforma para organizar sessões de comunicação entre pessoas surdas e ouvintes.</p></section>
+    <div id="mensagem" role="status" aria-live="polite"></div>
+    <section id="usuarios" class="painel"><div class="titulo"><h2>01. Usuários</h2><p>Cadastre pessoas para iniciar uma sessão.</p></div>
+      <form id="formUsuario" class="form"><input type="hidden" id="usuarioId"><label>Nome<input id="nome" required maxlength="100" placeholder="Nome completo"></label><label>E-mail<input id="email" type="email" required placeholder="email@exemplo.com"></label><label>Perfil<select id="perfil"><option value="SURDO">Pessoa surda</option><option value="OUVINTE">Pessoa ouvinte</option><option value="OUTRO">Outro</option></select></label><button type="submit">Salvar usuário</button><button type="button" class="secundario" id="limparUsuario">Limpar</button></form>
+      <div id="listaUsuarios" class="lista"></div>
+    </section>
+    <section id="sessoes" class="painel"><div class="titulo"><h2>02. Sessões</h2><p>Crie e encerre sessões de comunicação.</p></div><form id="formSessao" class="form"><label>Usuário<select id="sessaoUsuario" required></select></label><button type="submit">Iniciar sessão</button></form><div id="listaSessoes" class="lista"></div></section>
+    <section id="traducoes" class="painel">
+      <div class="titulo"><h2>03. Comunicação</h2><p>Envie mensagens, visualize os sinais ilustrados e consulte o histórico salvo da sessão.</p></div>
+      <form id="formTraducao" class="form">
+        <input type="hidden" id="traducaoId">
+        <label>Sessão<select id="traducaoSessao" required></select></label>
+        <label>Direção<select id="direcao"><option value="PORTUGUES_PARA_LIBRAS">Português → Sinais</option><option value="LIBRAS_PARA_PORTUGUES">Libras → Português (registro textual)</option></select></label>
+        <label class="larguraTotal">Mensagem<textarea id="texto" required maxlength="2000" rows="3" placeholder="Ex.: Eu vou ler"></textarea></label>
+        <button type="submit">Salvar mensagem e mostrar sinais</button>
+        <button type="button" class="secundario" id="limparTraducao">Limpar</button>
+      </form>
+      <p class="textoDiscreto">Biblioteca com 60 sinais ilustrados. Somente as palavras disponíveis no catálogo geram imagens.</p>
+      <div class="visualizacaoSinais" id="visualizacaoSinais" hidden>
+        <div class="titulo"><h3>Sinais da mensagem</h3><p id="fraseVisualizada"></p></div>
+        <div id="statusSinais" class="textoDiscreto" role="status" aria-live="polite"></div>
+        <div id="resultadoSinais" class="gradeSinais"></div>
+        <div id="desconhecidas" class="avisoPalavras" hidden></div>
+        <button type="button" class="secundario" id="fecharSinais">Ocultar imagens</button>
+      </div>
+      <div class="cabecalhoHistorico"><h3>Histórico de mensagens</h3><p class="textoDiscreto">As mensagens ficam salvas no Oracle. Clique em “Ver sinais” para gerar as imagens novamente.</p></div>
+      <div id="listaTraducoes" class="lista"></div>
+    </section>
+  </main><footer>Sinalis • Protótipo funcional de gestão de comunicação • Java 17 + Oracle</footer>
+</body></html>

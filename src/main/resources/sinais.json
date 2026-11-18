@@ -1,0 +1,639 @@
+[
+  {
+    "rotulo": "Oi",
+    "imagem": "/img/sinais/01-oi.webp",
+    "termos": [
+      "oi"
+    ]
+  },
+  {
+    "rotulo": "Tchau",
+    "imagem": "/img/sinais/02-tchau.webp",
+    "termos": [
+      "tchau"
+    ]
+  },
+  {
+    "rotulo": "Obrigado(a)",
+    "imagem": "/img/sinais/03-obrigado.webp",
+    "termos": [
+      "obrigado"
+    ]
+  },
+  {
+    "rotulo": "Obrigado(a)",
+    "imagem": "/img/sinais/03-obrigado.webp",
+    "termos": [
+      "obrigada"
+    ]
+  },
+  {
+    "rotulo": "Por favor",
+    "imagem": "/img/sinais/04-por-favor.webp",
+    "termos": [
+      "por",
+      "favor"
+    ]
+  },
+  {
+    "rotulo": "Desculpa",
+    "imagem": "/img/sinais/05-desculpa.webp",
+    "termos": [
+      "desculpa"
+    ]
+  },
+  {
+    "rotulo": "Sim",
+    "imagem": "/img/sinais/06-sim.webp",
+    "termos": [
+      "sim"
+    ]
+  },
+  {
+    "rotulo": "Não",
+    "imagem": "/img/sinais/07-nao.webp",
+    "termos": [
+      "nao"
+    ]
+  },
+  {
+    "rotulo": "Eu",
+    "imagem": "/img/sinais/08-eu.webp",
+    "termos": [
+      "eu"
+    ]
+  },
+  {
+    "rotulo": "Você",
+    "imagem": "/img/sinais/09-voce.webp",
+    "termos": [
+      "voce"
+    ]
+  },
+  {
+    "rotulo": "Ele/Ela",
+    "imagem": "/img/sinais/10-ele-ela.webp",
+    "termos": [
+      "ele"
+    ]
+  },
+  {
+    "rotulo": "Ele/Ela",
+    "imagem": "/img/sinais/10-ele-ela.webp",
+    "termos": [
+      "ela"
+    ]
+  },
+  {
+    "rotulo": "Nós",
+    "imagem": "/img/sinais/11-nos.webp",
+    "termos": [
+      "nos"
+    ]
+  },
+  {
+    "rotulo": "Eles/Elas",
+    "imagem": "/img/sinais/12-eles-elas.webp",
+    "termos": [
+      "eles"
+    ]
+  },
+  {
+    "rotulo": "Eles/Elas",
+    "imagem": "/img/sinais/12-eles-elas.webp",
+    "termos": [
+      "elas"
+    ]
+  },
+  {
+    "rotulo": "Meu/Minha",
+    "imagem": "/img/sinais/13-meu-minha.webp",
+    "termos": [
+      "meu"
+    ]
+  },
+  {
+    "rotulo": "Meu/Minha",
+    "imagem": "/img/sinais/13-meu-minha.webp",
+    "termos": [
+      "minha"
+    ]
+  },
+  {
+    "rotulo": "Seu/Sua",
+    "imagem": "/img/sinais/14-seu-sua.webp",
+    "termos": [
+      "seu"
+    ]
+  },
+  {
+    "rotulo": "Seu/Sua",
+    "imagem": "/img/sinais/14-seu-sua.webp",
+    "termos": [
+      "sua"
+    ]
+  },
+  {
+    "rotulo": "Nome",
+    "imagem": "/img/sinais/15-nome.webp",
+    "termos": [
+      "nome"
+    ]
+  },
+  {
+    "rotulo": "Idade",
+    "imagem": "/img/sinais/16-idade.webp",
+    "termos": [
+      "idade"
+    ]
+  },
+  {
+    "rotulo": "Onde",
+    "imagem": "/img/sinais/17-onde.webp",
+    "termos": [
+      "onde"
+    ]
+  },
+  {
+    "rotulo": "Quando",
+    "imagem": "/img/sinais/18-quando.webp",
+    "termos": [
+      "quando"
+    ]
+  },
+  {
+    "rotulo": "Como",
+    "imagem": "/img/sinais/19-como.webp",
+    "termos": [
+      "como"
+    ]
+  },
+  {
+    "rotulo": "Por quê",
+    "imagem": "/img/sinais/20-por-que.webp",
+    "termos": [
+      "por",
+      "que"
+    ]
+  },
+  {
+    "rotulo": "O quê",
+    "imagem": "/img/sinais/21-o-que.webp",
+    "termos": [
+      "o",
+      "que"
+    ]
+  },
+  {
+    "rotulo": "Qual",
+    "imagem": "/img/sinais/22-qual.webp",
+    "termos": [
+      "qual"
+    ]
+  },
+  {
+    "rotulo": "Quantos",
+    "imagem": "/img/sinais/23-quantos.webp",
+    "termos": [
+      "quantos"
+    ]
+  },
+  {
+    "rotulo": "Hoje",
+    "imagem": "/img/sinais/24-hoje.webp",
+    "termos": [
+      "hoje"
+    ]
+  },
+  {
+    "rotulo": "Ontem",
+    "imagem": "/img/sinais/25-ontem.webp",
+    "termos": [
+      "ontem"
+    ]
+  },
+  {
+    "rotulo": "Amanhã",
+    "imagem": "/img/sinais/26-amanha.webp",
+    "termos": [
+      "amanha"
+    ]
+  },
+  {
+    "rotulo": "Agora",
+    "imagem": "/img/sinais/27-agora.webp",
+    "termos": [
+      "agora"
+    ]
+  },
+  {
+    "rotulo": "Depois",
+    "imagem": "/img/sinais/28-depois.webp",
+    "termos": [
+      "depois"
+    ]
+  },
+  {
+    "rotulo": "Antes",
+    "imagem": "/img/sinais/29-antes.webp",
+    "termos": [
+      "antes"
+    ]
+  },
+  {
+    "rotulo": "Sempre",
+    "imagem": "/img/sinais/30-sempre.webp",
+    "termos": [
+      "sempre"
+    ]
+  },
+  {
+    "rotulo": "Nunca",
+    "imagem": "/img/sinais/31-nunca.webp",
+    "termos": [
+      "nunca"
+    ]
+  },
+  {
+    "rotulo": "Aqui",
+    "imagem": "/img/sinais/32-aqui.webp",
+    "termos": [
+      "aqui"
+    ]
+  },
+  {
+    "rotulo": "Lá",
+    "imagem": "/img/sinais/33-la.webp",
+    "termos": [
+      "la"
+    ]
+  },
+  {
+    "rotulo": "Casa",
+    "imagem": "/img/sinais/34-casa.webp",
+    "termos": [
+      "casa"
+    ]
+  },
+  {
+    "rotulo": "Escola",
+    "imagem": "/img/sinais/35-escola.webp",
+    "termos": [
+      "escola"
+    ]
+  },
+  {
+    "rotulo": "Trabalho",
+    "imagem": "/img/sinais/36-trabalho.webp",
+    "termos": [
+      "trabalho"
+    ]
+  },
+  {
+    "rotulo": "Família",
+    "imagem": "/img/sinais/37-familia.webp",
+    "termos": [
+      "familia"
+    ]
+  },
+  {
+    "rotulo": "Amigo(a)",
+    "imagem": "/img/sinais/38-amigo.webp",
+    "termos": [
+      "amigo"
+    ]
+  },
+  {
+    "rotulo": "Amigo(a)",
+    "imagem": "/img/sinais/38-amigo.webp",
+    "termos": [
+      "amiga"
+    ]
+  },
+  {
+    "rotulo": "Pessoas",
+    "imagem": "/img/sinais/39-pessoas.webp",
+    "termos": [
+      "pessoas"
+    ]
+  },
+  {
+    "rotulo": "Ajuda",
+    "imagem": "/img/sinais/40-ajuda.webp",
+    "termos": [
+      "ajuda"
+    ]
+  },
+  {
+    "rotulo": "Água",
+    "imagem": "/img/sinais/41-agua.webp",
+    "termos": [
+      "agua"
+    ]
+  },
+  {
+    "rotulo": "Comida",
+    "imagem": "/img/sinais/42-comida.webp",
+    "termos": [
+      "comida"
+    ]
+  },
+  {
+    "rotulo": "Beber",
+    "imagem": "/img/sinais/43-beber.webp",
+    "termos": [
+      "beber"
+    ]
+  },
+  {
+    "rotulo": "Comer",
+    "imagem": "/img/sinais/44-comer.webp",
+    "termos": [
+      "comer"
+    ]
+  },
+  {
+    "rotulo": "Dormir",
+    "imagem": "/img/sinais/45-dormir.webp",
+    "termos": [
+      "dormir"
+    ]
+  },
+  {
+    "rotulo": "Estudar",
+    "imagem": "/img/sinais/46-estudar.webp",
+    "termos": [
+      "estudar"
+    ]
+  },
+  {
+    "rotulo": "Ler",
+    "imagem": "/img/sinais/47-ler.webp",
+    "termos": [
+      "ler"
+    ]
+  },
+  {
+    "rotulo": "Escrever",
+    "imagem": "/img/sinais/48-escrever.webp",
+    "termos": [
+      "escrever"
+    ]
+  },
+  {
+    "rotulo": "Entender",
+    "imagem": "/img/sinais/49-entender.webp",
+    "termos": [
+      "entender"
+    ]
+  },
+  {
+    "rotulo": "Não entender",
+    "imagem": "/img/sinais/50-nao-entender.webp",
+    "termos": [
+      "nao",
+      "entender"
+    ]
+  },
+  {
+    "rotulo": "Vou",
+    "imagem": "/img/sinais/51-vou.webp",
+    "termos": [
+      "vou"
+    ]
+  },
+  {
+    "rotulo": "Querer",
+    "imagem": "/img/sinais/52-querer.webp",
+    "termos": [
+      "querer"
+    ]
+  },
+  {
+    "rotulo": "Querer",
+    "imagem": "/img/sinais/52-querer.webp",
+    "termos": [
+      "quero"
+    ]
+  },
+  {
+    "rotulo": "Querer",
+    "imagem": "/img/sinais/52-querer.webp",
+    "termos": [
+      "quer"
+    ]
+  },
+  {
+    "rotulo": "Querer",
+    "imagem": "/img/sinais/52-querer.webp",
+    "termos": [
+      "queremos"
+    ]
+  },
+  {
+    "rotulo": "Querer",
+    "imagem": "/img/sinais/52-querer.webp",
+    "termos": [
+      "querem"
+    ]
+  },
+  {
+    "rotulo": "Precisar",
+    "imagem": "/img/sinais/53-precisar.webp",
+    "termos": [
+      "precisar"
+    ]
+  },
+  {
+    "rotulo": "Precisar",
+    "imagem": "/img/sinais/53-precisar.webp",
+    "termos": [
+      "preciso"
+    ]
+  },
+  {
+    "rotulo": "Precisar",
+    "imagem": "/img/sinais/53-precisar.webp",
+    "termos": [
+      "precisa"
+    ]
+  },
+  {
+    "rotulo": "Precisar",
+    "imagem": "/img/sinais/53-precisar.webp",
+    "termos": [
+      "precisamos"
+    ]
+  },
+  {
+    "rotulo": "Precisar",
+    "imagem": "/img/sinais/53-precisar.webp",
+    "termos": [
+      "precisam"
+    ]
+  },
+  {
+    "rotulo": "Poder",
+    "imagem": "/img/sinais/54-poder.webp",
+    "termos": [
+      "poder"
+    ]
+  },
+  {
+    "rotulo": "Poder",
+    "imagem": "/img/sinais/54-poder.webp",
+    "termos": [
+      "posso"
+    ]
+  },
+  {
+    "rotulo": "Poder",
+    "imagem": "/img/sinais/54-poder.webp",
+    "termos": [
+      "pode"
+    ]
+  },
+  {
+    "rotulo": "Poder",
+    "imagem": "/img/sinais/54-poder.webp",
+    "termos": [
+      "podemos"
+    ]
+  },
+  {
+    "rotulo": "Poder",
+    "imagem": "/img/sinais/54-poder.webp",
+    "termos": [
+      "podem"
+    ]
+  },
+  {
+    "rotulo": "Gostar",
+    "imagem": "/img/sinais/55-gostar.webp",
+    "termos": [
+      "gostar"
+    ]
+  },
+  {
+    "rotulo": "Gostar",
+    "imagem": "/img/sinais/55-gostar.webp",
+    "termos": [
+      "gosto"
+    ]
+  },
+  {
+    "rotulo": "Gostar",
+    "imagem": "/img/sinais/55-gostar.webp",
+    "termos": [
+      "gosta"
+    ]
+  },
+  {
+    "rotulo": "Gostar",
+    "imagem": "/img/sinais/55-gostar.webp",
+    "termos": [
+      "gostamos"
+    ]
+  },
+  {
+    "rotulo": "Gostar",
+    "imagem": "/img/sinais/55-gostar.webp",
+    "termos": [
+      "gostam"
+    ]
+  },
+  {
+    "rotulo": "Chegar",
+    "imagem": "/img/sinais/56-chegar.webp",
+    "termos": [
+      "chegar"
+    ]
+  },
+  {
+    "rotulo": "Chegar",
+    "imagem": "/img/sinais/56-chegar.webp",
+    "termos": [
+      "chego"
+    ]
+  },
+  {
+    "rotulo": "Chegar",
+    "imagem": "/img/sinais/56-chegar.webp",
+    "termos": [
+      "chega"
+    ]
+  },
+  {
+    "rotulo": "Chegar",
+    "imagem": "/img/sinais/56-chegar.webp",
+    "termos": [
+      "chegamos"
+    ]
+  },
+  {
+    "rotulo": "Chegar",
+    "imagem": "/img/sinais/56-chegar.webp",
+    "termos": [
+      "chegam"
+    ]
+  },
+  {
+    "rotulo": "Morar",
+    "imagem": "/img/sinais/57-morar.webp",
+    "termos": [
+      "morar"
+    ]
+  },
+  {
+    "rotulo": "Morar",
+    "imagem": "/img/sinais/57-morar.webp",
+    "termos": [
+      "moro"
+    ]
+  },
+  {
+    "rotulo": "Morar",
+    "imagem": "/img/sinais/57-morar.webp",
+    "termos": [
+      "mora"
+    ]
+  },
+  {
+    "rotulo": "Morar",
+    "imagem": "/img/sinais/57-morar.webp",
+    "termos": [
+      "moramos"
+    ]
+  },
+  {
+    "rotulo": "Morar",
+    "imagem": "/img/sinais/57-morar.webp",
+    "termos": [
+      "moram"
+    ]
+  },
+  {
+    "rotulo": "Tudo bem",
+    "imagem": "/img/sinais/58-tudo-bem.webp",
+    "termos": [
+      "tudo",
+      "bem"
+    ]
+  },
+  {
+    "rotulo": "Bom dia",
+    "imagem": "/img/sinais/59-bom-dia.webp",
+    "termos": [
+      "bom",
+      "dia"
+    ]
+  },
+  {
+    "rotulo": "Boa noite",
+    "imagem": "/img/sinais/60-boa-noite.webp",
+    "termos": [
+      "boa",
+      "noite"
+    ]
+  }
+]
