@@ -1,70 +1,125 @@
-# Sinalis — Global Solution Java 17
-
-MVP acadêmico de gestão de usuários, sessões e registros de comunicação Português/Libras.
-**Não realiza tradução automática, reconhecimento de fala nem interpretação por câmera.**
-
-## Requisitos
-- Java 17 (Microsoft OpenJDK 17.0.20 compatível)
-- Maven 3.9+ (ou Maven integrado ao IntelliJ)
-- Acesso à rede e credenciais válidas do Oracle FIAP
-
-## Executar no IntelliJ
-1. Abra a pasta `Sinalis` como projeto Maven.
-2. Selecione o JDK 17.
-3. Em Run > Edit Configurations > Aplicacao > Environment variables, configure `DB_USER` e `DB_PASSWORD` com suas credenciais Oracle. **Não inclua a senha no GitHub.**
-4. Execute `br.com.sinalis.Aplicacao`.
-5. Abra `http://localhost:8080/` para usar o frontend. A API está em `/api`.
-
-A URL padrão do banco é `jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL`. Pode ser substituída por `DB_URL`.
-O Hibernate está com `ddl-auto=update` para criar/atualizar tabelas e sequences; isso exige permissões DDL no Oracle.
-
+# Sinalis
+ 
+API RESTful em Java que aproxima pessoas surdas e ouvintes: registra conversas entre Português e Libras e converte frases em sequências de sinais ilustrados.
+ 
+Projeto da **Global Solution FIAP 2026.2** (CitizenTech, Engenharia de Software), disciplina Domain Driven Design - Java.
+ 
+**Deploy:** https://sinalis.onrender.com
+> Hospedado no plano gratuito do Render. Após um período sem uso a aplicação "dorme", e o primeiro acesso pode levar cerca de 1 minuto.
+ 
+---
+ 
+## Sobre o projeto
+ 
+A comunicação entre surdos e ouvintes ainda esbarra na falta de ferramentas simples de apoio. O Sinalis oferece uma base para isso: usuários participam de sessões de comunicação, cada sessão guarda o histórico de mensagens, e qualquer frase pode ser convertida em uma sequência de cartões ilustrados de sinais em Libras.
+ 
+## Funcionalidades
+ 
+- **Usuários:** cadastro com perfil `SURDO`, `OUVINTE` ou `OUTRO`.
+- **Sessões de comunicação:** início e encerramento de conversas por usuário.
+- **Histórico de mensagens:** registro de cada mensagem, com a direção (`PORTUGUES_PARA_LIBRAS` ou `LIBRAS_PARA_PORTUGUES`), salvo no Oracle.
+- **Tradutor ilustrado:** converte uma frase em cartões de sinais a partir de um catálogo de 57 sinais, indicando as palavras que não foram encontradas.
+- **Interface web:** página única, servida pela própria aplicação, que reúne usuários, sessões e comunicação.
+## Tecnologias
+ 
+| Camada | Tecnologia |
+|---|---|
+| Linguagem | Java 17 |
+| Framework | Spring Boot 3.3 (Web, Data JPA, Validation) |
+| Banco de dados | Oracle (servidor da FIAP) |
+| Build | Maven |
+| Deploy | Docker no Render |
+| Front-end | HTML, CSS e JavaScript puros |
+ 
+## Arquitetura
+ 
+O código segue a organização em camadas vista em aula, em `br.com.sinalis`:
+ 
+```
+model       Entidades JPA (Usuario, SessaoComunicacao, Traducao)
+dao         Repositórios Spring Data JPA
+bo          Regras de negócio
+controller  Endpoints REST
+dto         Objetos de requisição
+exception   Exceções de negócio e tratamento global (@RestControllerAdvice)
+```
+ 
+**Regras de negócio**
+- Um usuário com sessões não pode ser excluído.
+- Uma sessão com mensagens não pode ser excluída.
+- Uma sessão já encerrada não pode ser encerrada novamente.
+**Tratamento de erros:** respostas em JSON (`{"erro": "..."}`) com os status `400` (validação ou regra de negócio), `404` (recurso não encontrado) e `409` (registro duplicado ou relacionamento que impede a operação).
+ 
+## Modelo de dados
+ 
+```
+SINALIS_USUARIO  1 ──── N  SINALIS_SESSAO  1 ──── N  SINALIS_TRADUCAO
+```
+ 
+As tabelas e sequences são criadas automaticamente pelo Hibernate (`ddl-auto=update`). O catálogo de sinais não fica no banco: é carregado do arquivo `sinais.json` na inicialização.
+ 
 ## Endpoints
-| Método | Caminho | Função |
+ 
+Base: `/api`
+ 
+| Recurso | Método | Caminho | Descrição |
+|---|---|---|---|
+| Usuários | GET | `/usuarios` | Lista usuários |
+| | POST | `/usuarios` | Cadastra usuário |
+| | GET | `/usuarios/{id}` | Consulta por id |
+| | PUT | `/usuarios/{id}` | Atualiza |
+| | DELETE | `/usuarios/{id}` | Exclui |
+| Sessões | GET | `/sessoes` | Lista sessões |
+| | POST | `/sessoes` | Inicia sessão |
+| | GET | `/sessoes/{id}` | Consulta por id |
+| | PUT | `/sessoes/{id}/encerrar` | Encerra sessão |
+| | DELETE | `/sessoes/{id}` | Exclui |
+| Traduções | GET | `/traducoes` | Lista (filtro opcional `?sessaoId=`) |
+| | POST | `/traducoes` | Registra mensagem |
+| | GET | `/traducoes/{id}` | Consulta por id |
+| | PUT | `/traducoes/{id}` | Atualiza |
+| | DELETE | `/traducoes/{id}` | Exclui |
+| Sinais | GET | `/sinais` | Lista o catálogo de sinais |
+| | POST | `/sinais/converter` | Converte uma frase em sinais |
+ 
+**Exemplos de corpo (JSON)**
+ 
+```json
+// POST /api/usuarios
+{ "nome": "Ana", "email": "ana@example.com", "perfil": "SURDO" }
+ 
+// POST /api/sessoes
+{ "usuarioId": 1 }
+ 
+// POST /api/traducoes
+{ "sessaoId": 1, "direcao": "PORTUGUES_PARA_LIBRAS", "texto": "Bom dia" }
+ 
+// POST /api/sinais/converter
+{ "texto": "Eu vou ler" }
+```
+ 
+## Executando localmente
+ 
+Requisitos: **JDK 17**, **Maven 3.9+** (ou o Maven do IntelliJ) e acesso ao Oracle da FIAP.
+ 
+A aplicação lê as credenciais do banco de variáveis de ambiente, que devem ser definidas antes de iniciar (no IntelliJ: *Run > Edit Configurations > Environment variables*):
+ 
+| Variável | Descrição | Padrão |
 |---|---|---|
-| GET, POST | /api/usuarios | Listar / cadastrar |
-| GET, PUT, DELETE | /api/usuarios/{id} | Consultar / editar / excluir |
-| GET, POST | /api/sessoes | Listar / iniciar |
-| GET, DELETE | /api/sessoes/{id} | Consultar / excluir |
-| PUT | /api/sessoes/{id}/encerrar | Encerrar sessão |
-| GET, POST | /api/traducoes | Listar / registrar |
-| GET, PUT, DELETE | /api/traducoes/{id} | Consultar / editar / excluir |
-
-`GET /api/traducoes?sessaoId=1` filtra por sessão.
-
-### Exemplos JSON
-POST `/api/usuarios`: `{"nome":"Ana","email":"ana@example.com","perfil":"SURDO"}`
-POST `/api/sessoes`: `{"usuarioId":1}`
-POST `/api/traducoes`: `{"sessaoId":1,"direcao":"PORTUGUES_PARA_LIBRAS","texto":"Bom dia"}`
-
-## Banco
-Entidades JPA: `SINALIS_USUARIO` 1:N `SINALIS_SESSAO` 1:N `SINALIS_TRADUCAO`.
-A implementação usa interfaces DAO com Spring Data JPA e classes BO com regras de negócio.
-
-## Render
-O `Dockerfile` permite criar um Web Service Docker no Render. Configure `DB_USER`, `DB_PASSWORD` e, se necessário, `DB_URL` como variáveis de ambiente no serviço. **É indispensável verificar se o Oracle FIAP aceita conexões vindas do Render**. O deploy não foi executado nem validado.
-
-## Testes
-`mvn test` executa um teste básico. **Ainda faltam testes de integração com Oracle e testes de regras de negócio.**
-
-## Segurança
-Este MVP não possui autenticação/autorização. Não o exponha com dados pessoais reais sem adicionar controles de acesso, CORS adequado e políticas de privacidade. Não faça commit de senhas.
-
-
-## Tradutor ilustrado (MVP de 57 sinais)
-
-Acesse `/tradutor.html` ou o link **Tradutor de sinais** no cabeçalho.
-O backend expõe `GET /api/sinais` e `POST /api/sinais/converter` (JSON: `{"texto":"Eu vou ler"}`).
-O dicionário está em `src/main/resources/sinais.json`, e as 57 imagens otimizadas em `src/main/resources/static/img/sinais/`.
-O JSON original tinha entradas repetidas para variantes de palavras; a API lista 57 cartões únicos e reconhece as variantes na conversão.
-Palavras não reconhecidas são listadas separadamente. O algoritmo faz correspondência de vocabulário, não tradução gramatical completa de português para Libras.
-Não há alterações nas tabelas Oracle existentes; o catálogo é carregado do JSON na inicialização.
-
-## Interface unificada (novembro/2026)
-
-- Abra `http://localhost:8080/`: usuários, sessões e comunicação na mesma página.
-- Mensagens de comunicação são persistidas no Oracle via `/api/traducoes`.
-- Ao salvar ou clicar em **Ver sinais** no histórico, o navegador consulta `/api/sinais/converter` e mostra as ilustrações correspondentes.
-- Imagens e resultados de conversão não são persistidos no banco. A visualização é temporária e desaparece ao atualizar a página; o histórico textual continua salvo.
-- Catálogo limitado a 57 sinais ilustrados; palavras sem correspondência são identificadas.
-- Não é tradução gramatical completa para Libras.
-- A API Java existente e as entidades JPA foram preservadas.
+| `DB_USER` | Usuário do Oracle | obrigatória |
+| `DB_PASSWORD` | Senha do Oracle | obrigatória |
+| `DB_URL` | URL JDBC | `jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL` |
+| `PORT` | Porta HTTP | `8080` |
+ 
+Em seguida, execute a classe `br.com.sinalis.Aplicacao` (ou `mvn spring-boot:run`) e acesse `http://localhost:8080`.
+ 
+## Deploy
+ 
+O deploy é feito no Render como **Web Service Docker**, a partir do `Dockerfile` da raiz (build com Maven e execução em JRE 17). As variáveis `DB_USER` e `DB_PASSWORD` são configuradas no painel do serviço, e a porta é injetada pelo próprio Render.
+ 
+## Limitações
+ 
+- O tradutor faz **correspondência de vocabulário** com o catálogo de 57 sinais. Não é tradução gramatical completa para Libras, e não há reconhecimento de fala nem interpretação por câmera.
+- As imagens e os resultados da conversão não são salvos no banco. Apenas o histórico textual das mensagens é persistido.
+- Não há autenticação ou autorização. É um projeto acadêmico e não deve ser usado com dados pessoais reais.
+ 
